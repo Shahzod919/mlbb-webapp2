@@ -1,63 +1,98 @@
-import React from "react";
-
-export default function App() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-100 to-blue-200 p-4 font-sans">
-      <header className="text-center py-4">
-        <h1 className="text-2xl font-bold text-blue-700">💎 MLBB Olmos Buyurtma</h1>
-        <p className="text-gray-600">Balans, buyurtmalar va kataloglar bir joyda</p>
-      </header>
-
-      <nav className="flex justify-around bg-white shadow-md rounded-xl py-2 my-4">
-        <button className="text-blue-600 font-medium hover:underline">Katalog</button>
-        <button className="text-blue-600 font-medium hover:underline">Balans</button>
-        <button className="text-blue-600 font-medium hover:underline">Buyurtmalar</button>
-      </nav>
-
-      <section>
-        <h2 className="text-xl font-semibold text-gray-700 mb-2">🔥 Diamond Paketlar</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-white shadow-md rounded-xl p-4 text-center">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3409/3409581.png"
-              alt="Diamond"
-              className="w-16 h-16 mx-auto mb-2"
-            />
-            <p className="font-semibold">86 Olmos</p>
-            <p className="text-green-600">13,000 so'm</p>
-          </div>
-
-          <div className="bg-white shadow-md rounded-xl p-4 text-center">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3409/3409581.png"
-              alt="Diamond"
-              className="w-16 h-16 mx-auto mb-2"
-            />
-            <p className="font-semibold">172 Olmos</p>
-            <p className="text-green-600">25,000 so'm</p>
-          </div>
-
-          <div className="bg-white shadow-md rounded-xl p-4 text-center">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3409/3409581.png"
-              alt="Diamond"
-              className="w-16 h-16 mx-auto mb-2"
-            />
-            <p className="font-semibold">257 Olmos</p>
-            <p className="text-green-600">38,000 so'm</p>
-          </div>
-
-          <div className="bg-white shadow-md rounded-xl p-4 text-center">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3409/3409581.png"
-              alt="Diamond"
-              className="w-16 h-16 mx-auto mb-2"
-            />
-            <p className="font-semibold">514 Olmos</p>
-            <p className="text-green-600">72,000 so'm</p>
-          </div>
-        </div>
-      </section>
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O'yin Donat Katalogi</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #1a1a1a;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header h1 {
+      font-size: 18px;
+      margin: 0;
+      color: #00ffff;
+    }
+    .language {
+      color: #ffffff;
+      font-size: 14px;
+    }
+    .container {
+      padding: 20px;
+    }
+    .game-card {
+      background-color: #1f1f1f;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 255, 255, 0.1);
+    }
+    .game-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .game-card h2 {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .game-card button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #00ffff;
+      color: #000000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .game-card button:hover {
+      background-color: #00cccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🎮 Donat o'yinlar</h1>
+    <div class="language">🇺🇿 | 🇷🇺</div>
+  </div>
+  <div class="container">
+    <div class="game-card">
+      <img src="https://i.imgur.com/AJB22M5.jpg" alt="Mobile Legends">
+      <h2>Mobile Legends</h2>
+      <button onclick="location.href='mlbb.html'">Katalogni ko‘rish</button>
     </div>
-  );
-}
+    <div class="game-card">
+      <img src="https://i.imgur.com/tAyr8kX.jpg" alt="PUBG Mobile">
+      <h2>PUBG Mobile</h2>
+      <button onclick="location.href='pubg.html'">Katalogni ko‘rish</button>
+    </div>
+    <div class="game-card">
+      <img src="https://i.imgur.com/z0zZdAw.jpg" alt="Free Fire">
+      <h2>Free Fire</h2>
+      <button onclick="location.href='freefire.html'">Katalogni ko‘rish</button>
+    </div>
+    <div class="game-card">
+      <img src="https://i.imgur.com/Wrms5rW.jpg" alt="Call of Duty Mobile">
+      <h2>Call of Duty Mobile</h2>
+      <button onclick="location.href='cod.html'">Katalogni ko‘rish</button>
+    </div>
+    <div class="game-card">
+      <img src="https://i.imgur.com/9o8MQ3F.jpg" alt="Genshin Impact">
+      <h2>Genshin Impact</h2>
+      <button onclick="location.href='genshin.html'">Katalogni ko‘rish</button>
+    </div>
+  </div>
+</body>
+</html>
