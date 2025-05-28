@@ -1,51 +1,63 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-  <meta charset="UTF-8">
-  <title>Mobile Legends Donat</title>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-</head>
-<body>
-  <h2>💎 Mobile Legends Diamond Buyurtma</h2>
+import React from "react";
 
-  <label>Diamond paketini tanlang:</label><br>
-  <select id="package">
-    <option value="11">11 diamond</option>
-    <option value="55">55 diamond</option>
-    <option value="77">77 diamond</option>
-    <option value="100">100 diamond</option>
-  </select><br><br>
+export default function App() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-sky-100 to-blue-200 p-4 font-sans">
+      <header className="text-center py-4">
+        <h1 className="text-2xl font-bold text-blue-700">💎 MLBB Olmos Buyurtma</h1>
+        <p className="text-gray-600">Balans, buyurtmalar va kataloglar bir joyda</p>
+      </header>
 
-  <label>O‘yinchi ID:</label><br>
-  <input type="text" id="player_id" placeholder="123456789"><br><br>
+      <nav className="flex justify-around bg-white shadow-md rounded-xl py-2 my-4">
+        <button className="text-blue-600 font-medium hover:underline">Katalog</button>
+        <button className="text-blue-600 font-medium hover:underline">Balans</button>
+        <button className="text-blue-600 font-medium hover:underline">Buyurtmalar</button>
+      </nav>
 
-  <label>Server ID:</label><br>
-  <input type="text" id="server_id" placeholder="1234"><br><br>
+      <section>
+        <h2 className="text-xl font-semibold text-gray-700 mb-2">🔥 Diamond Paketlar</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-white shadow-md rounded-xl p-4 text-center">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3409/3409581.png"
+              alt="Diamond"
+              className="w-16 h-16 mx-auto mb-2"
+            />
+            <p className="font-semibold">86 Olmos</p>
+            <p className="text-green-600">13,000 so'm</p>
+          </div>
 
-  <button onclick="submitOrder()">Sotib olish</button>
+          <div className="bg-white shadow-md rounded-xl p-4 text-center">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3409/3409581.png"
+              alt="Diamond"
+              className="w-16 h-16 mx-auto mb-2"
+            />
+            <p className="font-semibold">172 Olmos</p>
+            <p className="text-green-600">25,000 so'm</p>
+          </div>
 
-  <script>
-    const tg = window.Telegram.WebApp;
+          <div className="bg-white shadow-md rounded-xl p-4 text-center">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3409/3409581.png"
+              alt="Diamond"
+              className="w-16 h-16 mx-auto mb-2"
+            />
+            <p className="font-semibold">257 Olmos</p>
+            <p className="text-green-600">38,000 so'm</p>
+          </div>
 
-    function submitOrder() {
-      const package = document.getElementById("package").value;
-      const playerId = document.getElementById("player_id").value.trim();
-      const serverId = document.getElementById("server_id").value.trim();
-
-      if (!playerId || !serverId) {
-        alert("Iltimos, Player ID va Server ID kiriting.");
-        return;
-      }
-
-      const data = {
-        player_id: playerId,
-        server_id: serverId,
-        package: package
-      };
-
-      tg.sendData(JSON.stringify(data));  // Ma’lumotni botga yuborish
-      tg.close();  // Web App-ni yopish
-    }
-  </script>
-</body>
-</html>
+          <div className="bg-white shadow-md rounded-xl p-4 text-center">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3409/3409581.png"
+              alt="Diamond"
+              className="w-16 h-16 mx-auto mb-2"
+            />
+            <p className="font-semibold">514 Olmos</p>
+            <p className="text-green-600">72,000 so'm</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
