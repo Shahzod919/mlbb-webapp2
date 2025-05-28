@@ -2,52 +2,50 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <title>MLBB olmos buyurtma</title>
+  <title>Mobile Legends Donat</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px;
-      background-color: #fff;
-    }
-    input, select, button {
-      margin: 10px;
-      padding: 10px;
-      font-size: 16px;
-      width: 80%;
-    }
-  </style>
 </head>
 <body>
-  <h2>💎 MLBB olmos buyurtma</h2>
+  <h2>💎 Mobile Legends Diamond Buyurtma</h2>
 
-  <form id="buyurtmaForm">
-    <input type="text" id="gameId" placeholder="Game ID" required><br>
-    <select id="miqdor">
-      <option value="86">86 Olmos</option>
-      <option value="172">172 Olmos</option>
-      <option value="257">257 Olmos</option>
-    </select><br>
-    <button type="submit">Yuborish</button>
-  </form>
+  <label>Diamond paketini tanlang:</label><br>
+  <select id="package">
+    <option value="11">11 diamond</option>
+    <option value="55">55 diamond</option>
+    <option value="77">77 diamond</option>
+    <option value="100">100 diamond</option>
+  </select><br><br>
+
+  <label>O‘yinchi ID:</label><br>
+  <input type="text" id="player_id" placeholder="123456789"><br><br>
+
+  <label>Server ID:</label><br>
+  <input type="text" id="server_id" placeholder="1234"><br><br>
+
+  <button onclick="submitOrder()">Sotib olish</button>
 
   <script>
-    const form = document.getElementById("buyurtmaForm");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    const tg = window.Telegram.WebApp;
 
-      const gameId = document.getElementById("gameId").value;
-      const miqdor = document.getElementById("miqdor").value;
+    function submitOrder() {
+      const package = document.getElementById("package").value;
+      const playerId = document.getElementById("player_id").value.trim();
+      const serverId = document.getElementById("server_id").value.trim();
+
+      if (!playerId || !serverId) {
+        alert("Iltimos, Player ID va Server ID kiriting.");
+        return;
+      }
 
       const data = {
-        gameId: gameId,
-        miqdor: miqdor
+        player_id: playerId,
+        server_id: serverId,
+        package: package
       };
 
-      Telegram.WebApp.sendData(JSON.stringify(data));
-      Telegram.WebApp.close();
-    });
+      tg.sendData(JSON.stringify(data));  // Ma’lumotni botga yuborish
+      tg.close();  // Web App-ni yopish
+    }
   </script>
 </body>
 </html>
