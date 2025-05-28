@@ -1,42 +1,54 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MLBB Buyurtma</title>
+  <meta charset="UTF-8">
+  <title>MLBB olmos buyurtma</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    input, select, button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+      width: 80%;
+    }
+  </style>
 </head>
 <body>
   <h2>💎 MLBB olmos buyurtma</h2>
-  <form id="orderForm">
-    <label for="game_id">Game ID:</label><br>
-    <input type="text" id="game_id" name="game_id" required><br><br>
 
-    <label for="amount">Miqdor:</label><br>
-    <select id="amount" name="amount">
+  <form id="buyurtmaForm">
+    <input type="text" id="gameId" placeholder="Game ID" required /><br>
+    
+    <select id="miqdor">
       <option value="86">86 Olmos</option>
       <option value="172">172 Olmos</option>
-      <option value="344">344 Olmos</option>
-    </select><br><br>
+      <option value="257">257 Olmos</option>
+    </select><br>
 
     <button type="submit">Yuborish</button>
   </form>
 
   <script>
-    const tg = window.Telegram.WebApp;
+    const form = document.getElementById("buyurtmaForm");
 
-    document.getElementById("orderForm").addEventListener("submit", function (e) {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
 
+      const gameId = document.getElementById("gameId").value;
+      const miqdor = document.getElementById("miqdor").value;
+
       const data = {
-        game_id: document.getElementById("game_id").value,
-        amount: document.getElementById("amount").value
+        gameId: gameId,
+        miqdor: miqdor
       };
 
-      tg.sendData(JSON.stringify(data)); // Bu ma’lumotni Telegram botga jo‘natadi
+      Telegram.WebApp.sendData(JSON.stringify(data)); // Botga ma’lumot jo‘natiladi
+      Telegram.WebApp.close(); // WebApp yopiladi
     });
-
-    tg.expand(); // Web App'ni to‘liq oynada ochish
   </script>
 </body>
 </html>
