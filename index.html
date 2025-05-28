@@ -1,0 +1,42 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MLBB Buyurtma</title>
+</head>
+<body>
+  <h2>💎 MLBB olmos buyurtma</h2>
+  <form id="orderForm">
+    <label for="game_id">Game ID:</label><br>
+    <input type="text" id="game_id" name="game_id" required><br><br>
+
+    <label for="amount">Miqdor:</label><br>
+    <select id="amount" name="amount">
+      <option value="86">86 Olmos</option>
+      <option value="172">172 Olmos</option>
+      <option value="344">344 Olmos</option>
+    </select><br><br>
+
+    <button type="submit">Yuborish</button>
+  </form>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+
+    document.getElementById("orderForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const data = {
+        game_id: document.getElementById("game_id").value,
+        amount: document.getElementById("amount").value
+      };
+
+      tg.sendData(JSON.stringify(data)); // Bu ma’lumotni Telegram botga jo‘natadi
+    });
+
+    tg.expand(); // Web App'ni to‘liq oynada ochish
+  </script>
+</body>
+</html>
